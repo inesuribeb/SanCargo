@@ -1,0 +1,7 @@
+.logos-section {
+    display: flex;
+    flex-direction: row;
+    height: 40vh;
+    background-color: var(--dark-blue);
+    padding: 0;
+}

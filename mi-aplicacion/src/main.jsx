@@ -15,6 +15,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client"; // 👈 aquí estaba el error
 import { RouterProvider } from "react-router-dom";
 import router from "./utils/Router";
+import './index.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

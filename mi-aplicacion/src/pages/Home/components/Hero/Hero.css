@@ -1,0 +1,31 @@
+.hero-section {
+    position: relative; /* 👈 necesario para el ::before */
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-image: url(/Images/Home/barco.jpg);
+    background-size: cover;  
+    background-position: center center; 
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 10vh;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* ajusta la opacidad */
+    z-index: 0;
+}
+
+/* Para que el contenido quede por encima del overlay */
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero__title {
+    color: var(--white) !important;
+}

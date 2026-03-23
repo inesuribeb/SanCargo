@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -108,4 +108,42 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+} */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+
+  --dark-color: black;
+  --dark-blue: #071927;
+  --background-color: #F5F3F0;
+  --corporative-purple: #33358D;
+  --polo-blue: #9FADD4;
+  --light-polo-blue: #BECAE8;
+  --light-blue: #B9DCF9;
+  --white: white;
+  --letter-blue: #5BAEF0;
+  --light-grey: #EDF0F7;
+  --medium-grey: #DCE1EF;
+  --potent-blue: #1A4AC1;
+
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -1,0 +1,30 @@
+.title-subtitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box; /* 👈 incluye padding en el cálculo del width */
+    gap: 80px;
+    padding: 0 120px;
+}
+
+.title-subtitle__title {
+    flex: 4;
+    display: flex;
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: inherit;
+    /* max-width: 500px; */
+}
+
+.title-subtitle__subtitle {
+    flex: 2;
+    display: flex;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 600px;
+    color: inherit;
+}

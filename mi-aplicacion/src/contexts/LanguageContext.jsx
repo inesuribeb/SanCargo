@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { homeTranslations } from './languageSections/HomeContent';
 
 const translations = {
   es: {
@@ -8,6 +9,7 @@ const translations = {
     services: "Servicios",
     sustainability: "Sostenibilidad",
     work: "Trabaja con nosotros",
+    ...homeTranslations.es,
   },
   en: {
     home: "Home",
@@ -15,6 +17,7 @@ const translations = {
     services: "Services",
     sustainability: "Sustainability",
     work: "Work with us",
+    ...homeTranslations.en,
   },
   de: {
     home: "Startseite",
@@ -22,6 +25,7 @@ const translations = {
     services: "Dienstleistungen",
     sustainability: "Nachhaltigkeit",
     work: "Arbeite mit uns",
+    ...homeTranslations.de,
   },
 };
 

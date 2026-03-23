@@ -2,7 +2,7 @@ import './Logos.css';
 
 function Logos() {
     return (
-        <section>
+        <section className='logos-section'>
             <h1>Logos</h1>
         </section>
     )

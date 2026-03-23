@@ -15,10 +15,10 @@ function Header() {
         </Link>
 
         <nav className="header__nav">
-          <Link to={getRoute('home')} className="header__link">
+          {/* <Link to={getRoute('home')} className="header__link">
             <span className="header__dot" />
             {t('home')}
-          </Link>
+          </Link> */}
           <Link to={getRoute('services')} className="header__link">
             <span className="header__dot" />
             {t('services')}
