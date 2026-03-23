@@ -1,6 +1,7 @@
 import './Header.css';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; // 👈 cambia Link por NavLink
 
 function Header() {
   const { t, getRoute, changeLanguage, language } = useLanguage();
@@ -9,32 +10,35 @@ function Header() {
     <header className="header">
       <div className="header__inner">
 
-        <Link to={getRoute('home')} className="header__logo">
+        {/* <NavLink to={getRoute('home')} className="header__logo">
           <span className="header__logo-icon">⟨S⟩</span>
-          <span className="header__logo-text">San Cargo</span>
-        </Link>
+          <span className="header__logo-text">SanCargo</span>
+        </NavLink> */}
+        <NavLink to={getRoute('home')} className="header__logo">
+          <img src="/Images/logoSC_trans.png" alt="SanCargo" className="header__logo-img" />
+          <span className="header__logo-text">SanCargo</span>
+        </NavLink>
 
         <nav className="header__nav">
-          {/* <Link to={getRoute('home')} className="header__link">
-            <span className="header__dot" />
-            {t('home')}
-          </Link> */}
-          <Link to={getRoute('services')} className="header__link">
+          <NavLink to={getRoute('services')} className={({ isActive }) => `header__link ${isActive ? 'active' : ''}`}>
             <span className="header__dot" />
             {t('services')}
-          </Link>
-          <Link to={getRoute('sustainability')} className="header__link">
+          </NavLink>
+
+          <NavLink to={getRoute('sustainability')} className={({ isActive }) => `header__link ${isActive ? 'active' : ''}`}>
             <span className="header__dot" />
             {t('sustainability')}
-          </Link>
-          <Link to={getRoute('contact')} className="header__link">
+          </NavLink>
+
+          <NavLink to={getRoute('contact')} className={({ isActive }) => `header__link ${isActive ? 'active' : ''}`}>
             <span className="header__dot" />
             {t('contact')}
-          </Link>
-          <Link to={getRoute('work')} className="header__link header__link--cta">
+          </NavLink>
+
+          <NavLink to={getRoute('work')} className={({ isActive }) => `header__link header__link--cta ${isActive ? 'active' : ''}`}>
             <span className="header__dot" />
             {t('work')}
-          </Link>
+          </NavLink>
         </nav>
 
         <div className="header__lang">

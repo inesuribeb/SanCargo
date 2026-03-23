@@ -1,3 +1,4 @@
+import { useLanguage } from '../../contexts/LanguageContext';
 import Hero from './components/Hero/Hero';
 import Logos from './components/Logos/Logos';
 import IntroUs from './components/IntroUs/IntroUs';

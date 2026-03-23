@@ -5,108 +5,131 @@
     z-index: 100;
     background: #ffffff;
     border-bottom: 1px solid #e8e8e8;
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  }
-  
-  .header__inner {
+    /* font-family: 'Helvetica Neue', Helvetica, sans-serif; */
+}
+
+/* .header__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 3rem;
+    height: 52px;
+} */
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
     height: 52px;
-  }
-  
-  /* Logo */
-  .header__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: #1a1a1a;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.01em;
-    flex-shrink: 0;
-  }
-  
-  .header__logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: #1a1a1a;
-    color: #fff;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-  }
-  
-  /* Nav */
-  .header__nav {
+    position: relative; /* 👈 */
+}
+
+/* Logo */
+.header__logo {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-  }
-  
-  .header__link {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
+}
+
+.header__logo-img {
+    height: 35px;
+    width: auto;
+}
+
+.header__logo-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Nav */
+/* .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+} */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: absolute; /* 👈 */
+    left: 50%;
+    transform: translateX(-50%); /* 👈 */
+}
+
+.header__link {
     display: flex;
     align-items: center;
     gap: 0.3rem;
     padding: 0.35rem 0.75rem;
     text-decoration: none;
     color: #444;
-    font-size: 0.82rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 500;
     letter-spacing: 0.01em;
     border-radius: 4px;
     transition: color 0.15s ease, background 0.15s ease;
     white-space: nowrap;
-  }
-  
-  .header__link:hover {
+}
+
+.header__link:hover {
     color: #1a1a1a;
-    background: #f4f4f4;
-  }
-  
-  .header__dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+    /* background: #f4f4f4; */
+}
+
+.header__dot {
+    width: 7px;
+    height: 7px;
+    /* border-radius: 50%; */
     background: #bbb;
     flex-shrink: 0;
     transition: background 0.15s ease;
-  }
-  
-  .header__link:hover .header__dot {
-    background: #1a1a1a;
-  }
-  
-  .header__link--cta {
+}
+
+.header__link:hover .header__dot {
+    background: var(--corporative-purple);
+}
+
+.header__link.active .header__dot {
+    background: var(--corporative-purple);
+}
+
+.header__link.active {
+    color: var(--corporative-purple);
+}
+
+.header__link--cta {
     color: #1a1a1a;
     font-weight: 500;
-  }
-  
-  .header__link--cta .header__dot {
+}
+
+.header__link--cta .header__dot {
     background: #888;
-  }
-  
-  /* Language switcher */
-  .header__lang {
+}
+
+/* Language switcher */
+.header__lang {
     display: flex;
     align-items: center;
     gap: 0.15rem;
     flex-shrink: 0;
-  }
-  
-  .header__lang-btn {
+}
+
+.header__lang-btn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #aaa;
     padding: 0.25rem 0.4rem;
@@ -114,14 +137,14 @@
     letter-spacing: 0.05em;
     transition: color 0.15s ease, background 0.15s ease;
     font-family: inherit;
-  }
-  
-  .header__lang-btn:hover {
+}
+
+.header__lang-btn:hover {
     color: #1a1a1a;
     background: #f4f4f4;
-  }
-  
-  .header__lang-btn--active {
+}
+
+.header__lang-btn--active {
     color: #1a1a1a;
     font-weight: 700;
-  }
+}
