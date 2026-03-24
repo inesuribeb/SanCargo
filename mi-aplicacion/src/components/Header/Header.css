@@ -8,15 +8,6 @@
     /* font-family: 'Helvetica Neue', Helvetica, sans-serif; */
 }
 
-/* .header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 3rem;
-    height: 52px;
-} */
 .header__inner {
     display: flex;
     align-items: center;
@@ -24,8 +15,8 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
-    height: 52px;
-    position: relative; /* 👈 */
+    height: 72px;
+    position: relative;
 }
 
 /* Logo */
@@ -53,18 +44,13 @@
 }
 
 /* Nav */
-/* .header__nav {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-} */
 .header__nav {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    position: absolute; /* 👈 */
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* 👈 */
+    transform: translateX(-50%);
 }
 
 .header__link {
@@ -84,13 +70,11 @@
 
 .header__link:hover {
     color: #1a1a1a;
-    /* background: #f4f4f4; */
 }
 
 .header__dot {
     width: 7px;
     height: 7px;
-    /* border-radius: 50%; */
     background: #bbb;
     flex-shrink: 0;
     transition: background 0.15s ease;
@@ -147,4 +131,156 @@
 .header__lang-btn--active {
     color: #1a1a1a;
     font-weight: 700;
+}
+
+
+
+
+
+
+
+
+/* Dropdown wrapper */
+.header__dropdown {
+    position: static;
+    cursor: pointer;
+}
+
+/* Submenu */
+.header__submenu {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    transform: translateY(-6px);
+    z-index: 200;
+}
+
+.header__submenu--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Items del submenu */
+.header__submenu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.25rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: 400;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.3s ease;
+    overflow: hidden;
+    height: 100px;
+}
+
+.header__submenu-item:last-child {
+    border-bottom: none;
+}
+
+/* Imagen de fondo en hover */
+.header__submenu-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--hover-img);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+/* Overlay negro */
+.header__submenu-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.header__submenu-item:hover::before,
+.header__submenu-item:hover::after {
+    opacity: 1;
+}
+
+.header__submenu-item:hover {
+    color: #fff;
+}
+
+.header__submenu-title,
+.header__submenu-arrow {
+    position: relative;
+    z-index: 2;
+}
+
+.header__submenu-item:hover .header__submenu-arrow {
+    transform: translateX(4px);
+    color: #fff;
+}
+
+.header__submenu-arrow {
+    font-size: 0.9rem;
+    color: #bbb;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+
+
+.header--dark {
+    background: rgba(0, 0, 0, 0.5);
+    /* backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+    border-bottom: 1px solid var(--white);
+}
+
+.header--dark .header__link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.header--dark .header__link:hover {
+    color: #fff;
+}
+
+.header--dark .header__dot {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.header--dark .header__link:hover .header__dot,
+.header--dark .header__link.active .header__dot {
+    background: #fff;
+}
+
+.header--dark .header__link.active {
+    color: #fff;
+}
+
+.header--dark .header__logo-text {
+    color: #fff;
+}
+
+.header--dark .header__lang-btn {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.header--dark .header__lang-btn:hover,
+.header--dark .header__lang-btn--active {
+    color: #fff;
 }

@@ -4,7 +4,9 @@ import Contacto from "../pages/Contacto/Contacto";
 import Servicios from "../pages/Servicios/Servicios";
 import Sostenibilidad from "../pages/Sostenibilidad/Sostenibilidad";
 import Trabaja from "../pages/Trabaja/Trabaja";
+import Nosotros from "../pages/Nosotros/Nosotros";
 import Root from "../root/Root";
+
 
 const router = createBrowserRouter([
   // ── Español (base) ─────────────────────────────────────
@@ -13,8 +15,9 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { index: true,                        element: <Home /> },
+      { path: "nosotros",                   element: <Nosotros /> },
       { path: "contacto",                   element: <Contacto /> },
-      { path: "servicios",                  element: <Servicios /> },
+      { path: "servicios/:slug",                  element: <Servicios /> },
       { path: "sostenibilidad",             element: <Sostenibilidad /> },
       { path: "trabaja-con-nosotros",       element: <Trabaja /> },
     ],
@@ -26,8 +29,9 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { index: true,                        element: <Home /> },
+      { path: "about-us",                   element: <Nosotros /> },
       { path: "contact",                    element: <Contacto /> },
-      { path: "services",                   element: <Servicios /> },
+      { path: "services/:slug",                   element: <Servicios /> },
       { path: "sustainability",             element: <Sostenibilidad /> },
       { path: "work-with-us",               element: <Trabaja /> },
     ],
@@ -39,8 +43,9 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { index: true,                        element: <Home /> },
+      { path: "ueber-uns",                  element: <Nosotros /> },
       { path: "kontakt",                    element: <Contacto /> },
-      { path: "dienstleistungen",           element: <Servicios /> },
+      { path: "dienstleistungen/:slug",           element: <Servicios /> },
       { path: "nachhaltigkeit",             element: <Sostenibilidad /> },
       { path: "arbeite-mit-uns",            element: <Trabaja /> },
     ],

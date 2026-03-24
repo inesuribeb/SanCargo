@@ -1,6 +1,8 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { homeTranslations } from './languageSections/HomeContent';
+import { sostenibilityTranslations } from './languageSections/SostenibilityContent';
+import { nosotrosTranslations } from './languageSections/NosotrosContent';
 
 const translations = {
   es: {
@@ -9,7 +11,10 @@ const translations = {
     services: "Servicios",
     sustainability: "Sostenibilidad",
     work: "Trabaja con nosotros",
+    about: "Nosotros",
     ...homeTranslations.es,
+    ...sostenibilityTranslations.es,
+    ...nosotrosTranslations.es,
   },
   en: {
     home: "Home",
@@ -17,7 +22,11 @@ const translations = {
     services: "Services",
     sustainability: "Sustainability",
     work: "Work with us",
+    about: "About us",
     ...homeTranslations.en,
+    ...sostenibilityTranslations.en,
+    ...nosotrosTranslations.en,
+
   },
   de: {
     home: "Startseite",
@@ -25,7 +34,10 @@ const translations = {
     services: "Dienstleistungen",
     sustainability: "Nachhaltigkeit",
     work: "Arbeite mit uns",
+    about: "Über uns",
     ...homeTranslations.de,
+    ...sostenibilityTranslations.de,
+    ...nosotrosTranslations.de,
   },
 };
 
@@ -36,6 +48,7 @@ const routes = {
     services: "/servicios",
     sustainability: "/sostenibilidad",
     work: "/trabaja-con-nosotros",
+    about: "/nosotros",
   },
   en: {
     home: "/en",
@@ -43,6 +56,7 @@ const routes = {
     services: "/en/services",
     sustainability: "/en/sustainability",
     work: "/en/work-with-us",
+    about: "/en/about-us",
   },
   de: {
     home: "/de",
@@ -50,6 +64,7 @@ const routes = {
     services: "/de/dienstleistungen",
     sustainability: "/de/nachhaltigkeit",
     work: "/de/arbeite-mit-uns",
+    about: "/de/ueber-uns",
   },
 };
 
@@ -60,6 +75,8 @@ const routeMap = {
   "/servicios":             { es: "/servicios",     en: "/en/services",     de: "/de/dienstleistungen" },
   "/sostenibilidad":        { es: "/sostenibilidad",en: "/en/sustainability",de: "/de/nachhaltigkeit" },
   "/trabaja-con-nosotros":  { es: "/trabaja-con-nosotros", en: "/en/work-with-us", de: "/de/arbeite-mit-uns" },
+  "/nosotros":              { es: "/nosotros",      en: "/en/about-us",     de: "/de/ueber-uns" },
+
 
   // Inglés
   "/en":                    { es: "/",              en: "/en",              de: "/de" },
@@ -67,6 +84,8 @@ const routeMap = {
   "/en/services":           { es: "/servicios",     en: "/en/services",     de: "/de/dienstleistungen" },
   "/en/sustainability":     { es: "/sostenibilidad",en: "/en/sustainability",de: "/de/nachhaltigkeit" },
   "/en/work-with-us":       { es: "/trabaja-con-nosotros", en: "/en/work-with-us", de: "/de/arbeite-mit-uns" },
+  "/en/about-us":           { es: "/nosotros",      en: "/en/about-us",     de: "/de/ueber-uns" },
+
 
   // Alemán
   "/de":                    { es: "/",              en: "/en",              de: "/de" },
@@ -74,6 +93,8 @@ const routeMap = {
   "/de/dienstleistungen":   { es: "/servicios",     en: "/en/services",     de: "/de/dienstleistungen" },
   "/de/nachhaltigkeit":     { es: "/sostenibilidad",en: "/en/sustainability",de: "/de/nachhaltigkeit" },
   "/de/arbeite-mit-uns":    { es: "/trabaja-con-nosotros", en: "/en/work-with-us", de: "/de/arbeite-mit-uns" },
+  "/de/ueber-uns":          { es: "/nosotros",      en: "/en/about-us",      de: "/de/ueber-uns" },
+
 };
 
 const detectLanguageFromPath = (path) => {

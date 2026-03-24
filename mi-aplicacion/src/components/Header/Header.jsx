@@ -1,29 +1,41 @@
+import { useState } from 'react';
 import './Header.css';
+import { useHeader } from '../../contexts/HeaderContext';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'; // 👈 cambia Link por NavLink
+import { NavLink } from 'react-router-dom';
+import { SCservices } from '../../utils/ServicesData';
 
 function Header() {
+  const { darkHeader } = useHeader();
   const { t, getRoute, changeLanguage, language } = useLanguage();
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   return (
-    <header className="header">
+    // <header className="header">
+    <header className={`header ${darkHeader ? 'header--dark' : ''}`}>
       <div className="header__inner">
 
-        {/* <NavLink to={getRoute('home')} className="header__logo">
-          <span className="header__logo-icon">⟨S⟩</span>
-          <span className="header__logo-text">SanCargo</span>
-        </NavLink> */}
         <NavLink to={getRoute('home')} className="header__logo">
           <img src="/Images/logoSC_trans.png" alt="SanCargo" className="header__logo-img" />
           <span className="header__logo-text">SanCargo</span>
         </NavLink>
 
         <nav className="header__nav">
-          <NavLink to={getRoute('services')} className={({ isActive }) => `header__link ${isActive ? 'active' : ''}`}>
+          <NavLink to={getRoute('about')} className={({ isActive }) => `header__link ${isActive ? 'active' : ''}`}>
             <span className="header__dot" />
-            {t('services')}
+            {t('about')}
           </NavLink>
+
+          <div
+            className="header__dropdown"
+            onMouseEnter={() => setSubmenuOpen(true)}
+            onMouseLeave={() => setSubmenuOpen(false)}
+          >
+            <span className="header__link">
+              <span className="header__dot" />
+              {t('services')}
+            </span>
+          </div>
 
           <NavLink to={getRoute('sustainability')} className={({ isActive }) => `header__link ${isActive ? 'active' : ''}`}>
             <span className="header__dot" />
@@ -54,6 +66,27 @@ function Header() {
         </div>
 
       </div>
+
+      {/* Submenu fuera del dropdown, hijo directo del header */}
+      <div
+        className={`header__submenu ${submenuOpen ? 'header__submenu--open' : ''}`}
+        onMouseEnter={() => setSubmenuOpen(true)}
+        onMouseLeave={() => setSubmenuOpen(false)}
+      >
+        {SCservices.map((service) => (
+          <NavLink
+            key={service.id}
+            to={`${getRoute('services')}/${service.slug[language]}`}
+            className="header__submenu-item"
+            style={{ '--hover-img': `url(${service.headerImg})` }}
+            onClick={() => setSubmenuOpen(false)}
+          >
+            <span className="header__submenu-title">{service.cardTitle[language]}</span>
+            <span className="header__submenu-arrow">→</span>
+          </NavLink>
+        ))}
+      </div>
+
     </header>
   );
 }
